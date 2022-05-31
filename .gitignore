@@ -2,6 +2,13 @@
 *
 
 # But not these files...
-README.md
+!README.md
 !.gitignore
-!/containers
+!/containers/
+!/containers/**/*
+
+# Secrets we dont want to share with the world
+/containers/certificates/key.pem
+/containers/certificates/cert.pem
+/containers/certificates/rootCA.pem
+
