@@ -58,25 +58,21 @@ sudo apt upgrade
     1. `sudo visudo /etc/sudoers.d/010_pi-nopasswd`
     2. Change `pi ALL=(ALL) NOPASSWD: ALL` to `pi ALL=(ALL) PASSWD: ALL`
 35. Auto update packages
-
     1.  `sudo apt install unattended-upgrades`
     2.  `sudo nvim /etc/apt/apt.conf.d/50unattended-upgrades`
     3.  Replace these lines
-
         ```
         "origin=Debian,codename=${distro_codename},label=Debian";
         "origin=Debian,codename=${distro_codename},label=Debian-Security";
         ```
-
         with
-
         ```
         "origin=Raspbian,codename=${distro_codename},label=Raspbian";
         "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";
         "origin=Docker,archive=${distro_codename},label=Docker CE";
         ```
-
     4.  Change `//Unattended-Upgrade::Mail "";` to `Unattended-Upgrade::Mail "root";`
+36. Create a directory for logs and data `mkdir -p /home/pi/containers/mosquitto/{log,data}`.
 
 ## Python virtual environment
 
@@ -107,6 +103,13 @@ Starting containers: `docker-compose up -d`.
 Take container down: `docker-compose down`.
 
 List running containers `docker ps`
+
+### Updating Docker images
+
+- See list of downloaded images with: `docker images`
+- Update images used in a docker compose file: `docker-compose pull`
+- Restart containers to use the new images: `docker-compose restart`
+- Prune old images: `docker image prune -f`
 
 ## Generating/Updating TLS certificates
 
