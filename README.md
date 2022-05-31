@@ -50,21 +50,20 @@ sudo apt upgrade
     4.  `git checkout main`
     5.  `git pull`
 29. Install Neovim `sudo apt-get install neovim`
-30.
-
-31. Create a directory for the Docker containers `mkdir /home/pi/containers`.
-32. Install Docker Compose `sudo pip3 install docker-compose`.
-33. Check to see if Docker Compose installed correctly `docker-compose --version`.
-34. Ask for password on `sudo`
+30. Set Neovim as default editor with `sudo update-alternatives --config editor`
+31. Install Docker Compose `sudo pip3 install docker-compose`.
+32. Check to see if Docker Compose installed correctly `docker-compose --version`.
+33. Ask for password on `sudo`
     1. `sudo visudo /etc/sudoers.d/010_pi-nopasswd`
     2. Change `pi ALL=(ALL) NOPASSWD: ALL` to `pi ALL=(ALL) PASSWD: ALL`
-35. To use TLS, we need to set up a local domain in the router settings. Set `raspberrypi.home` as a domain for the IP Address of the Raspberry Pi.
-36. Install `arm` release of `mkcert` with:
+34. To use TLS, we need to set up a local domain in the router settings. Set `raspberrypi.local` as a domain for the IP Address of the Raspberry Pi if possible.
+35. Install `arm` release of `mkcert` with:
 
 ```sh
 curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/arm"
 chmod +x mkcert-v*-linux-arm
 sudo cp mkcert-v*-linux-arm /usr/local/bin/mkcert
+rm mkcert-v*-linux-arm
 ```
 
 29. Check if `mkcert` is installed correctly with `mkcert --help`.
