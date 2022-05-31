@@ -15,4 +15,4 @@
 /containers/certificates/key.pem
 /containers/certificates/cert.pem
 /containers/certificates/rootCA.pem
-
+/containers/mosquitto/config/passwords

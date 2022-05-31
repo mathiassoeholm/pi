@@ -73,6 +73,7 @@ sudo apt upgrade
         ```
     4.  Change `//Unattended-Upgrade::Mail "";` to `Unattended-Upgrade::Mail "root";`
 36. Create a directory for logs and data `mkdir -p /home/pi/containers/mosquitto/{log,data}`.
+37. Generate password file for the home user with `docker exec -ti mosquitto /usr/bin/mosquitto_passwd -c /mosquitto/config/passwords home`. Use Mosquitto password from 1Password.
 
 ## Python virtual environment
 
