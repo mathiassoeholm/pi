@@ -40,14 +40,26 @@ sudo apt upgrade
 22. Check to see that the Docker engine is running: ` systemctl status docker`.
 23. Try the hello-world container `docker run --rm hello-world`.
 24. Install git `sudo apt-get install git`.
-25. Create a directory for the Docker containers `mkdir /home/pi/containers`.
-26. Install Docker Compose `sudo pip3 install docker-compose`.
-27. Check to see if Docker Compose installed correctly `docker-compose --version`.
-28. Ask for password on `sudo`
+25. Generate SSH key with: `ssh-keygen -t ed25519 -C "your_email@example.com"`
+26. Add the SSH key to the SHH agent: `ssh-add ~/.ssh/id_ed25519`
+27. Copy public key to Github: `cat ~/.ssh/id_ed25519.pub`
+28. Use this repo as the home directory:
+    1.  `cd ~`
+    2.  `git init .`
+    3.  `git remote add origin git@github.com:mathiassoeholm/pi.git`
+    4.  `git checkout main`
+    5.  `git pull`
+29. Install Neovim `sudo apt-get install neovim`
+30.
+
+31. Create a directory for the Docker containers `mkdir /home/pi/containers`.
+32. Install Docker Compose `sudo pip3 install docker-compose`.
+33. Check to see if Docker Compose installed correctly `docker-compose --version`.
+34. Ask for password on `sudo`
     1. `sudo visudo /etc/sudoers.d/010_pi-nopasswd`
     2. Change `pi ALL=(ALL) NOPASSWD: ALL` to `pi ALL=(ALL) PASSWD: ALL`
-29. To use TLS, we need to set up a local domain in the router settings. Set `raspberrypi.home` as a domain for the IP Address of the Raspberry Pi.
-30. Install `arm` release of `mkcert` with:
+35. To use TLS, we need to set up a local domain in the router settings. Set `raspberrypi.home` as a domain for the IP Address of the Raspberry Pi.
+36. Install `arm` release of `mkcert` with:
 
 ```sh
 curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/arm"
