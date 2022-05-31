@@ -3,6 +3,5 @@
 
 # But not these files...
 README.md
-!*.bashrc
 !.gitignore
 !/containers
