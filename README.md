@@ -143,6 +143,11 @@ Replace IP with the static IP Address of the Raspberry Pi:
 mkcert IP raspberrypi raspberrypi.local
 ```
 
+## Mosquitto (MQTT)
+
+Subscribe with TLS: `mosquitto_sub -h raspberrypi -p 8883 --cafile ~/containers/certificates/rootCA.pem -t '#' -u home -P PASSWORD`
+Publish with TLS: `mosquitto_pub -h raspberrypi -p 8883 --cafile ~/containers/certificates/rootCA.pem -u home -P PASSWORD -t 'test/foobar' -m 'test message'`
+
 ## Secrets
 
 Secrets are obviously not published to this open source repo. I store these in 1Password. A list of the secret files I need to remember can be seen in the `.gitignore`.
