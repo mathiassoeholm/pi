@@ -7,6 +7,8 @@
 !docker-compose.yml
 !/containers/
 !/containers/**/*
+!/.config/
+!/.config/**/*
 
 # Ignore
 /containers/mosquitto/log
