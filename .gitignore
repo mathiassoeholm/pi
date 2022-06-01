@@ -4,6 +4,7 @@
 # But not these files...
 !README.md
 !.gitignore
+!docker-compose.yml
 !/containers/
 !/containers/**/*
 
