@@ -15,3 +15,18 @@ services:
       - ./containers/certificates:/mosquitto/config/certs:ro
       - /etc/localtime:/etc/localtime:ro
     user: "1000:1000"
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      TZ: 'Europe/Copenhagen'
+      # WEBPASSWORD is not set because this file is check into an open source repo,
+      # hence I need to run `docker logs pihole | grep random` to get the password
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'    
+    restart: unless-stopped
