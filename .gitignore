@@ -13,6 +13,7 @@
 # Ignore
 /containers/mosquitto/log
 /containers/mosquitto/data
+/containers/node-red
 
 # Secrets we dont want to share with the world
 /containers/certificates/key.pem
