@@ -26,6 +26,17 @@ services:
 
     ports:
       - "1880:1880"
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ./containers/homeassistant:/config
+      - ./containers/certificates:/etc/ssl/private:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "8123:8123"
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
