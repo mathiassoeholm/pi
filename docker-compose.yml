@@ -1,31 +1,35 @@
 version: "3.7"
 
 services:
-  mosquitto:
-    image: eclipse-mosquitto
-    container_name: mosquitto
-    restart: always
-    ports:
-      - "8883:8883"
-      - "9001:9001"
-    volumes:
-      - ./containers/mosquitto/config:/mosquitto/config
-      - ./containers/mosquitto/data:/mosquitto/data
-      - ./containers/mosquitto/log:/mosquitto/log
-      - ./containers/certificates:/mosquitto/config/certs:ro
-      - /etc/localtime:/etc/localtime:ro
-    user: "1000:1000"
-  node-red:
-    image: nodered/node-red
-    container_name: node-red
-    restart: always
-    volumes:
-      - ./containers/node-red:/data
-      - ./containers/certificates:/etc/ssl/private:ro
-      - /etc/localtime:/etc/localtime:ro
+  # Don't need a MQTT broker at the moment, so it's commented out
+  # mosquitto:
+  #   image: eclipse-mosquitto
+  #   container_name: mosquitto
+  #   restart: always
+  #   ports:
+  #     - "8883:8883"
+  #     - "9001:9001"
+  #   volumes:
+  #     - ./containers/mosquitto/config:/mosquitto/config
+  #     - ./containers/mosquitto/data:/mosquitto/data
+  #     - ./containers/mosquitto/log:/mosquitto/log
+  #     - ./containers/certificates:/mosquitto/config/certs:ro
+  #     - /etc/localtime:/etc/localtime:ro
+  #   user: "1000:1000"
 
-    ports:
-      - "1880:1880"
+  # Example of node-red setup if needed
+  # node-red:
+  #   image: nodered/node-red
+  #   container_name: node-red
+  #   restart: always
+  #   volumes:
+  #     - ./containers/node-red:/data
+  #     - ./containers/certificates:/etc/ssl/private:ro
+  #     - /etc/localtime:/etc/localtime:ro
+
+  #   ports:
+  #     - "1880:1880"
+
   homeassistant:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
