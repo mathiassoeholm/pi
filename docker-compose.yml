@@ -15,3 +15,14 @@ services:
       - ./containers/certificates:/mosquitto/config/certs:ro
       - /etc/localtime:/etc/localtime:ro
     user: "1000:1000"
+  node-red:
+    image: nodered/node-red
+    container_name: node-red
+    restart: always
+    volumes:
+      - ./containers/node-red:/data
+      - ./containers/certificates:/etc/ssl/private:ro
+      - /etc/localtime:/etc/localtime:ro
+
+    ports:
+      - "1880:1880"
