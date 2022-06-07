@@ -14,8 +14,14 @@
 /containers/mosquitto/log
 /containers/mosquitto/data
 /containers/node-red
+/containers/node-red
+/containers/homeassistant/*
+
+# Unignore specific files
+!/containers/homeassistant/*.yaml
 
 # Secrets we dont want to share with the world
+/containers/homeassistant/secrets.yaml
 /containers/certificates/key.pem
 /containers/certificates/cert.pem
 /containers/certificates/rootCA.pem
