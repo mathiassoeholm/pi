@@ -29,6 +29,16 @@ services:
 
   #   ports:
   #     - "1880:1880"
+  wyze-bridge:
+    container_name: wyze-bridge
+    restart: unless-stopped
+    image: mrlt8/wyze-bridge:latest
+    ports:
+      - 8554:8554 # RTSP
+      - 5000:5000 # WEB-UI
+    environment:
+      - WYZE_EMAIL=${WYZE_EMAIL}
+      - WYZE_PASSWORD=${WYZE_PASSWORD}
 
   homeassistant:
     container_name: homeassistant

@@ -21,6 +21,7 @@
 !/containers/homeassistant/*.yaml
 
 # Secrets we dont want to share with the world
+.env
 /containers/homeassistant/secrets.yaml
 /containers/certificates/key.pem
 /containers/certificates/cert.pem
